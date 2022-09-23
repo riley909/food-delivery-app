@@ -8,8 +8,12 @@
 </ion-header>
 
 <ion-content>
+  <div>
+    <ion-skeleton-text animated style="height: 25vh"></ion-skeleton-text>
+  </div>
+  <app-loading-restaurant></app-loading-restaurant>
+  <app-banner [bannerImages]="banners"></app-banner>
   <ion-list>
-    <app-banner [bannerImages]="banners"></app-banner>
     <ion-list-header class="ion-margin-bottom">
       <ion-label
         ><h4>Restaurants Nearby</h4>
