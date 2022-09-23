@@ -8,24 +8,19 @@
 </ion-header>
 
 <ion-content>
-  <swiper [config]="config" class="border-bottom">
-    <ng-template swiperSlide>
-      <div [ngStyle]="{'background-image' : 'url(assets/imgs/1.jpg)'}"></div>
-    </ng-template>
-    <ng-template swiperSlide>
-      <div [ngStyle]="{'background-image' : 'url(assets/imgs/2.jpg)'}"></div>
-    </ng-template>
-    <ng-template swiperSlide>
-      <div [ngStyle]="{'background-image' : 'url(assets/imgs/3.jpg)'}"></div>
-    </ng-template>
-  </swiper>
-
   <ion-list>
-    <ion-list-header>
+    <app-banner [bannerImages]="banners"></app-banner>
+    <ion-list-header class="ion-margin-bottom">
       <ion-label
         ><h4>Restaurants Nearby</h4>
         <p>Discover unique tastes near you</p></ion-label
       >
     </ion-list-header>
+    <ion-item-group *ngIf="restaurants?.length > 0">
+      <app-restaurant
+        *ngFor="let restaurant of restaurants"
+        [restaurant]="restaurant"
+      ></app-restaurant>
+    </ion-item-group>
   </ion-list>
 </ion-content>
