@@ -3,3 +3,36 @@ ion-header {
     font-size: 1rem;
   }
 }
+
+swiper {
+  height: 30vh;
+
+  div {
+    transform: translateY(10%);
+    height: 20vh;
+    width: 94%;
+    margin: auto;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 2px;
+  }
+}
+
+.border-bottom {
+  border-bottom: 1.5vh solid var(--ion-color-light);
+}
+
+ion-label {
+  font-size: 0.9rem;
+  font-weight: bold;
+
+  h4 {
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+
+  p {
+    font-size: 0.7rem;
+  }
+}
