@@ -23,6 +23,7 @@ export class HomePage implements OnInit {
 
       this.restaurants = [
         {
+          uid: '12wefdss',
           cover: 'assets/imgs/1.jpg',
           name: 'Stayfit',
           shortName: 'stayfit',
@@ -33,6 +34,7 @@ export class HomePage implements OnInit {
           price: 100,
         },
         {
+          uid: '12wefdsd',
           cover: 'assets/imgs/2.jpg',
           name: 'Stayfit1',
           shortName: 'stayfit1',
@@ -43,6 +45,7 @@ export class HomePage implements OnInit {
           price: 100,
         },
         {
+          uid: '12wefdsa',
           cover: 'assets/imgs/3.jpg',
           name: 'Stayfit2',
           shortName: 'stayfit2',
