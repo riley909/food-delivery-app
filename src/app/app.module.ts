@@ -7,7 +7,7 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { StoreModule } from '@ngrx/store';
-import { counterReducer } from 'src/store/reducers/counter.reducer';
+import { reducers } from 'src/store/reducers';
 
 @NgModule({
   declarations: [AppComponent],
@@ -15,7 +15,7 @@ import { counterReducer } from 'src/store/reducers/counter.reducer';
     BrowserModule,
     IonicModule.forRoot(),
     AppRoutingModule,
-    StoreModule.forRoot({}),
+    StoreModule.forRoot(reducers),
   ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
