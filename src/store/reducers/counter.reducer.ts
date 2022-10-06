@@ -1,15 +1,22 @@
-import { createReducer, on } from '@ngrx/store';
-import {
-  decrementAction,
-  incrementAction,
-  resetAction,
-} from '../actions/counter.actions';
+/* eslint-disable prefer-arrow/prefer-arrow-functions */
+import * as Counter from '../actions/counter.actions';
 
-export const counterState = 0;
+export type CounterState = number;
 
-export const counterReducer = createReducer(
-  counterState,
-  on(incrementAction, (state) => state + 1),
-  on(decrementAction, (state) => state - 1),
-  on(resetAction, (state) => 0)
-);
+export const initialState: CounterState = 0;
+
+export function counterReducer(
+  state = initialState,
+  action: Counter.CounterActionUnion
+): CounterState {
+  switch (action.type) {
+    case Counter.ActionTypes.increment:
+      return state + 1;
+    case Counter.ActionTypes.decrement:
+      return state - 1;
+    case Counter.ActionTypes.reset:
+      return 0;
+    default:
+      return state;
+  }
+}
