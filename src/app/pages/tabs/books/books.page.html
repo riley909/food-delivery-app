@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-searchbar
+      debounce="800"
+      (ionChange)="onBookSearchChange($event)"
+    ></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="books$ | async as books">
+  <ion-list>
+    <ion-list-header>
+      <ion-label>
+        <h3>Search results for "{{query}}"</h3>
+      </ion-label>
+    </ion-list-header>
+
+    <div *ngFor="let book of books$ | async">
+      <ion-item lines="none">
+        <ion-thumbnail slot="start">
+          <img [src]="book.volumeInfo.imageLinks?.thumbnail" />
+        </ion-thumbnail>
+        <ion-label>
+          <h3>{{book.volumeInfo.title}}</h3>
+          <ion-text>
+            <div *ngFor="let author of book.volumeInfo.authors">
+              <h4>{{author}}</h4>
+            </div>
+            <div *ngFor="let category of book.volumeInfo.categories">
+              <p>{{category}}</p>
+            </div>
+            <p>{{book.volumeInfo.description}}</p>
+          </ion-text>
+        </ion-label>
+      </ion-item>
+    </div>
+  </ion-list>
+
+  <ng-template #empty>
+    <div>
+      <strong [style.color]="'#dbdbdb'">검색 결과 없음</strong>
+    </div>
+  </ng-template>
+</ion-content>
