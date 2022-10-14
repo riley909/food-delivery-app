@@ -24,7 +24,7 @@ export const booksReducer = createReducer<
   on(BooksActions.searchBooksFailureAction, (state, { errorMsg }) => ({
     ...state,
     error: errorMsg,
-  }))
+  })),
 );
 
 export const booksSelectFeature = createFeatureSelector<BooksState>('books');

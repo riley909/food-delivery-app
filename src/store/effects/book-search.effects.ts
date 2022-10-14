@@ -18,18 +18,20 @@ export class BookSearchEffects {
         }
         return this.bookService.searchBooks(query).pipe(
           map((books: Book[]) =>
-            BooksActions.searchBooksSuccessAction({ books })
+            BooksActions.searchBooksSuccessAction({ books }),
           ),
           catchError((err) =>
-            of(BooksActions.searchBooksFailureAction({ errorMsg: err.message }))
-          )
+            of(
+              BooksActions.searchBooksFailureAction({ errorMsg: err.message }),
+            ),
+          ),
         );
-      })
-    )
+      }),
+    ),
   );
 
   constructor(
     private actions$: Actions,
-    private bookService: GoogleBooksService
+    private bookService: GoogleBooksService,
   ) {}
 }
