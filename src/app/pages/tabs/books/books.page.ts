@@ -21,6 +21,7 @@ export class BooksPage implements OnInit {
   books$: Observable<Book[]>;
   query: string;
   booksList: Book[];
+  isLoading: boolean;
 
   constructor(private store$: Store<RootState>) {
     this.books$ = store$.select(booksSelector);
@@ -31,7 +32,5 @@ export class BooksPage implements OnInit {
   onBookSearchChange(event) {
     this.query = event.detail.value;
     this.store$.dispatch(booksActions.searchBooksAction({ query: this.query }));
-
-    console.log(this.books$);
   }
 }

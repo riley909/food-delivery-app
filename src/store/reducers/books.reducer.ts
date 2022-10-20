@@ -3,11 +3,13 @@ import { Book } from '../../app/pages/tabs/books/models/book';
 import * as BooksActions from '../actions/books.actions';
 
 export interface BooksState {
+  loading: boolean | null;
   books: Book[];
-  error: string;
+  error: string | null;
 }
 
 export const initialState: BooksState = {
+  loading: true,
   books: [],
   error: null,
 };
